@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>
+            Inicio
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-button routerLink="/saludo">
+        Saludos
+    </ion-button>
+    <ion-button routerLink="/saludo">
+        Operaciones Matematicas
+    </ion-button>
+
+    <ion-item>
+        <ion-label>Nombre:</ion-label>
+        <ion-input [(ngModel)]="nombre"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label pasition="floating">Apellido:</ion-label>
+        <ion-input [(ngModel)]="apellido"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label pasition="fixed">Celular:</ion-label>
+        <ion-input [(ngModel)]="celular"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label pasition="stacked">E-mail:</ion-label>
+        <ion-input [(ngModel)]="email"></ion-input>
+    </ion-item>
+    <ion-button color="success" (click)="guardarDatos()">
+        Guardar
+    </ion-button>
+
+
+    <ion-list>
+
+        <ion-item *ngFor="let usuario of usuarios;let l = index">
+            <ion-label>{{usuario.nombre}}</ion-label>
+            <ion-label>{{usuario.apellido}}</ion-label>
+            <ion-label>{{usuario.celular}}</ion-label>
+            <ion-label>{{usuario.email}}</ion-label>
+
+
+            <ion-button color="danger " (click)="eliminarDatos(l) ">
+                Eliminar
+            </ion-button>
+            <ion-button color="secondary " (click)="editarDatos(l) ">
+                Editar
+            </ion-button>
+        </ion-item>
+
+    </ion-list>
+
+</ion-content>
